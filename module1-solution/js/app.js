@@ -11,6 +11,9 @@
             if(arr.length<=3){
                 $scope.message="Enjoy!";
             }
+            else if(arr.length==0){
+                $scope.message="Please enter data first";
+            }
             else{
                 $scope.message="Too much!";
             }
