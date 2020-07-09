@@ -8,10 +8,14 @@
         $scope.message="";
         $scope.display= function (){
             var arr=parseString($scope.string);
+            var len=arr.length;
             if($scope.string==""){
+                len=0;
+            }
+            if(len==0){
                 $scope.message="Please enter data first";
             }
-            else if(arr.length<=3){
+            else if(len<=3){
                 $scope.message="Enjoy!";
             }
             else{
