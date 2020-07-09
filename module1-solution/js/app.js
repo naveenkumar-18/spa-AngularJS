@@ -1,11 +1,23 @@
 (function (){
     "use strict";
-    angular.module("capApp",[])
-    .controller("capController",function ($scope,$filter){
-        $scope.name="naveen";
-        $scope.capitalize= function (){
-            var ucase= $filter("uppercase");
-            $scope.name=ucase($scope.name);
+    angular.module("LunchCheck",[])
+    .controller("LunchCheckController", LunchController);
+    LunchController.$inject=["$scope"];
+    function LunchController ($scope){
+        $scope.string="";
+        $scope.message="";
+        $scope.display= function (){
+            var arr=parseString($scope.string);
+            if(arr.length<=3){
+                $scope.message="Enjoy!";
+            }
+            else{
+                $scope.message="Too much!";
+            }
+        };
+        function parseString (string){
+            var arr=string.split(',');
+            return arr;
         }
-    });
+    }
 })();
